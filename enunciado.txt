@@ -1,0 +1,28 @@
+Una gasolinera presta 4 clases de servicios por cada servicio que presta se tienen los siguientes datos:
+clase de servicio prestado (valores del 1 al 4)
+jornada en que se presto el servio (M de mañana, T de tarde), y el valor del servicio usted debe establecer los costo.
+
+Al final del día se requiere determinar lo siguiente:
+-el valor producido por cada clase de servicio,
+-el número de veces que se presto cada servicio,
+-el servicio que más se presto.
+-En que turno se presto más servicio ? en la mañana o en la tarde
+
+Elabore un programa en java que realice este problema, realice las validaciones que se requieran,
+Recuerde: no se imprime, ni se lee en la clase.
+
+
+ADOO Gasolinera:
+
+-valorServ1
+-valorServ2
+-valorServ3
+-valorServ4
+-serv
+-turno
+
++get
++calcularTServ
++calcularTur
++calcularServ
++set
