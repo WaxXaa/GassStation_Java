@@ -1,4 +1,4 @@
-Una gasolinera presta 4 clases de servicios por cada servicio que presta se tienen los siguientes datos:
+Un gasolinera presta 4 clases de servicios por cada servicio que presta se tienen los siguientes datos:
 clase de servicio prestado (valores del 1 al 4)
 jornada en que se presto el servio (M de mañana, T de tarde), y el valor del servicio usted debe establecer los costo.
 
