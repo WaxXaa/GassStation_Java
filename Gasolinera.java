@@ -1,21 +1,21 @@
 class Gasolinera {
-    private int serv;
-    private int turno;
+    private int servicio;
+    private String turno;
     private double valorServ1;
     private double valorServ2;
     private double valorServ3;
     private double valorServ4;
 
     public int getServ() {
-        return serv;
+        return servicio;
     }
-    public void setServ(int serv) {
-        this.serv = serv;
+    public void setServ(int servicio) {
+        this.servicio = servicio;
     }
-    public int getTurno() {
+    public String getTurno() {
         return turno;
     }
-    public void setTurno(int turno) {
+    public void setTurno(String turno) {
         this.turno = turno;
     }
     public double getValorServ1() {
@@ -42,13 +42,7 @@ class Gasolinera {
     public void setValorServ4(double valorServ4) {
         this.valorServ4 = valorServ4;
     }
-    public int incrementar(int var) {
-        return var + 1;
-    }
-    public double acumularServTot(double servAcum,double precio) {
-        double acum = servAcum + precio;
-        return  acum;
-    }
+
     public double sumarServTot(double servT1, double servT2, double servT3, double servT4){
         return (servT1 + servT2 + servT3 + servT4);
     }
@@ -65,13 +59,52 @@ class Gasolinera {
             resp = "\n\t---->   El servicio que mas se presto fue el 4 con: " + max + " veces";
         return resp;
     }
-    public String calcularMaxTurno(int turnoM, int turnoT) {
+    public String calcularMaxTurno(int ser1M, int ser2M, int ser3M, int ser4M, int ser1T, int ser2T, int ser3T, int ser4T) {
+        int maxM = Math.max(Math.max(ser1M, ser2M), Math.max(ser3M, ser4M));
+        int maxT = Math.max(Math.max(ser1T, ser2T), Math.max(ser3T, ser4T));
         String resp = "";
-        int max = Math.max(turnoT, turnoM);
-        if( max == turnoT)
+        int max = Math.max(maxM, maxT);
+        if( max == maxT)
             resp = "\n\t---->   El turno en el que mas se presto servicios fue el turno T con: " + max + " veces";
-        if( max == turnoM)
+        if( max == maxM)
             resp = "\n\t---->   El turno en el que mas se presto servicios fue el turno M con: " + max + " veces";
         return resp;
+    }
+
+    public void totalizarS( Cuenta ser1, Cuenta ser2, Cuenta ser3, Cuenta ser4) {
+        String tT = "T";
+        if( servicio == 1) {
+            ser1.incrementar();
+            ser1.totalizar(valorServ1);
+            if( turno.equals(tT) || turno.equals(tT.toLowerCase()))
+                ser1.incrementarTT();
+            else 
+                ser1.incrementarMM();
+        }
+        if( servicio == 2) {
+            ser2.incrementar();
+            ser2.totalizar(valorServ2);
+            if( turno.equals(tT) || turno.equals(tT.toLowerCase()))
+                ser2.incrementarTT();
+            else 
+                ser2.incrementarMM();
+        }
+        if( servicio == 3) {
+            ser3.incrementar();
+            ser3.totalizar(valorServ3);
+            if( turno.equals(tT) || turno.equals(tT.toLowerCase()))
+                ser1.incrementarTT();
+            else 
+                ser1.incrementarMM();
+        }
+        if( servicio == 1) {
+            ser4.incrementar();
+            ser4.totalizar(valorServ4);
+            if( turno.equals(tT) || turno.equals(tT.toLowerCase()))
+                ser1.incrementarTT();
+            else 
+                ser1.incrementarMM();
+
+        }
     }
 }
