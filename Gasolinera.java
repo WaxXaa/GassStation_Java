@@ -65,46 +65,32 @@ class Gasolinera {
         String resp = "";
         int max = Math.max(maxM, maxT);
         if( max == maxT)
-            resp = "\n\t---->   El turno en el que mas se presto servicios fue el turno T con: " + max + " veces";
+            resp = "\n\t---->   El turno en el que mas se presto servicios fue el turno de la tarde con: " + max + " veces";
         if( max == maxM)
-            resp = "\n\t---->   El turno en el que mas se presto servicios fue el turno M con: " + max + " veces";
+            resp = "\n\t---->   El turno en el que mas se presto servicios fue el turno de la mañana con: " + max + " veces";
         return resp;
     }
 
     public void totalizarS( Cuenta ser1, Cuenta ser2, Cuenta ser3, Cuenta ser4) {
-        String tT = "T";
         if( servicio == 1) {
             ser1.incrementar();
             ser1.totalizar(valorServ1);
-            if( turno.equals(tT) || turno.equals(tT.toLowerCase()))
-                ser1.incrementarTT();
-            else 
-                ser1.incrementarMM();
+            ser1.incrementarTurno(turno);
         }
         if( servicio == 2) {
             ser2.incrementar();
             ser2.totalizar(valorServ2);
-            if( turno.equals(tT) || turno.equals(tT.toLowerCase()))
-                ser2.incrementarTT();
-            else 
-                ser2.incrementarMM();
+            ser2.incrementarTurno(turno);
         }
         if( servicio == 3) {
             ser3.incrementar();
             ser3.totalizar(valorServ3);
-            if( turno.equals(tT) || turno.equals(tT.toLowerCase()))
-                ser1.incrementarTT();
-            else 
-                ser1.incrementarMM();
+            ser3.incrementarTurno(turno);
         }
-        if( servicio == 1) {
+        if( servicio == 4) {
             ser4.incrementar();
             ser4.totalizar(valorServ4);
-            if( turno.equals(tT) || turno.equals(tT.toLowerCase()))
-                ser1.incrementarTT();
-            else 
-                ser1.incrementarMM();
-
+            ser4.incrementarTurno(turno);
         }
     }
 }

@@ -14,7 +14,7 @@ class Cuenta {
     }
     public void setTotVS( double totVS) {
         this.totVS = totVS;
-    }    
+    }
     public int getTurnoT() {
         return turnoT;
     }
@@ -28,13 +28,14 @@ class Cuenta {
         this.turnoM = turnoM;
     }
     public void incrementar() {
-        cant += 1;        
+        cant += 1;
     }
-    public void incrementarTT() {
-        turnoT += 1;
-    }
-    public void incrementarMM() {
-        turnoM += 1;
+    public void incrementarTurno(String turn) {
+        String tT = "T";
+        if( turn.equals(tT) || turn.equals(tT.toLowerCase()))
+            turnoT += 1;
+        else
+            turnoM += 1;
     }
     public void totalizar(double precio) {
         totVS += precio;

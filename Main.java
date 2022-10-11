@@ -10,7 +10,7 @@ public class Main {
         Cuenta ser2 = new Cuenta();
         Cuenta ser3 = new Cuenta();
         Cuenta ser4 = new Cuenta();
-        int serv = 0; 
+        int serv = 0;
         double totServ = 0;
         double precio = 0;
 
@@ -26,7 +26,6 @@ public class Main {
         String jorndM = "M";
         String jorndT = "T";
 
-        
             for ( int i = 1; i <= 4; i++) {
                 do {
                     try {
@@ -67,6 +66,9 @@ public class Main {
                         leido = true;
                         gas.setTurno(turno);
                     }
+                    else {
+                        System.out.println("\n**Solo se acepta como respuesta \'M\' o \'T\'");
+                    }
                 } catch (IOException e) {
                     leido = false;
                     System.out.println("\n\t**ERROR** " + e);
@@ -74,13 +76,12 @@ public class Main {
             }while(!leido);
             do {
                 try {
-                    System.out.println("\n\n\tIngrese el numero del servicio");
+                    System.out.println("\n\tIngrese el numero del servicio");
                     System.out.println("\n\t1 ---- Revisado de llantas " + gas.getValorServ1() + "$");
                     System.out.println("\n\t2 ---- Cambio de aceite "  + gas.getValorServ2() + "$");
                     System.out.println("\n\t3 ---- Servicio completo "  + gas.getValorServ3() + "$");
                     System.out.println("\n\t4 ---- 1 Galon de gasolina "  + gas.getValorServ4() + "$");
                     serv = Integer.parseInt(br.readLine());
-                   
                     leido = true;
                     if ( serv <= 0 || serv > 4) {
                         System.out.println("\n**solo se aceptan valores del 1 al 4");
@@ -89,8 +90,6 @@ public class Main {
                         gas.setServ(serv);
                         gas.totalizarS(ser1, ser2, ser3, ser4);
                     }
-                    
-                    
                 }
                 catch(IOException e){System.out.println(e);}
                 catch(NumberFormatException err) {
@@ -110,6 +109,8 @@ public class Main {
                     if( resp.equals(respN) || resp.equals(respN.toLowerCase())) {
                         rept = false;
                         leido = true;
+                    } else {
+                        System.out.println("\n**Solo se acepta como respuesta \'S\' o \'N\'");
                     }
                 }
                 catch(IOException e){
